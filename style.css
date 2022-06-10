@@ -49,6 +49,7 @@ h1 {
   padding: 1.5rem;
 }
 
+
 .split.left .btn:hover {
   background-color: var(--left-btn-hover-color);
   border-color: var(--left-btn-hover-color);
@@ -75,7 +76,7 @@ h1 {
 
 .split.left {
   left: 0;
-  background: url('ps.jpg');
+  background: url('NVIDIA-CVPR-2018-Cover.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -90,7 +91,7 @@ h1 {
 
 .split.right {
   right: 0;
-  background: url('xbox.jpg');
+  background: url('amd.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }

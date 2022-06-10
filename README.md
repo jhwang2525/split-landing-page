@@ -6,4 +6,4 @@
 
 ## Deployed Link
 
-- 
+- https://jhwang2525.github.io/split-landing-page/

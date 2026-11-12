@@ -3,21 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Split Landing Page | Jun Hwang</title>
+    <meta name="description" content="Two-sided landing page where the hovered side expands to reveal its content." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>Split Landing Page
-    </title>
   </head>
   <body>
-    <div class="container">
-      <div class="split left" img src="/NVIDIA-CVPR-2018-Cover.jpg">
-        <h1>NVIDIA</h1>
-        <a href="#" class="btn">Buy Now</a>
-      </div>
-      <div class="split right" img src="/amd.jpg">
-        <h1>AMD</h1>
-        <a href="#" class="btn">Buy Now</a>
-      </div> 
-    </div>
+    <header class="topbar">
+      <span class="logo">STUDIO<span>/</span>JH</span>
+      <nav><a href="#">Work</a><a href="#">About</a><a href="#">Contact</a></nav>
+    </header>
+
+    <main class="container">
+      <section class="split left" tabindex="0" aria-labelledby="left-title">
+        <div class="pattern grid" aria-hidden="true"></div>
+        <div class="content">
+          <p class="kicker">01 — Design</p>
+          <h1 id="left-title">Interfaces people enjoy using.</h1>
+          <p class="body">Research, wireframes and polished UI in Figma, from first sketch to developer-ready prototype.</p>
+          <ul class="chips"><li>UX research</li><li>Figma</li><li>Prototyping</li></ul>
+          <a href="#" class="btn">See design work</a>
+        </div>
+      </section>
+
+      <section class="split right" tabindex="0" aria-labelledby="right-title">
+        <div class="pattern code" aria-hidden="true">&lt;/&gt;</div>
+        <div class="content">
+          <p class="kicker">02 — Develop</p>
+          <h1 id="right-title">Fast, reliable storefronts.</h1>
+          <p class="body">Custom Shopify themes and React front-ends that load fast and convert, on every screen size.</p>
+          <ul class="chips"><li>Shopify</li><li>React</li><li>Performance</li></ul>
+          <a href="#" class="btn">See dev work</a>
+        </div>
+      </section>
+    </main>
 
     <script src="script.js"></script>
   </body>

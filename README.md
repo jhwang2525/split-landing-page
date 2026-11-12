@@ -1,10 +1,20 @@
-## split-landing-page
+# Split Landing Page
 
-- Landing page has content in two different sections.
--  When hover to (left or right) then that side becomes larger and shows all the content of that section. 
--  The section gets freeze and it also freezes its content when hover.
-![split-landing-page](https://user-images.githubusercontent.com/80090287/199411288-5f5032d5-57ae-4bbf-b32d-bbb8ec0a78f4.JPG)
+A two-sided landing page for a design and development studio. Hover (or tab to) either side and it expands to take focus while the other side recedes.
 
-## Deployed Link
+**Live demo:** https://jhwang2525.github.io/split-landing-page/
 
-- https://jhwang2525.github.io/split-landing-page/
+![Split landing page screenshot](screenshot.png)
+
+## Features
+
+- Smooth width transition with a custom easing curve
+- The inactive side fades and scales down to keep attention on the active one
+- Works with the keyboard as well as the mouse
+- Stacks into full-height sections on mobile
+- Pure CSS backgrounds (gradients, grid mask and code motif), so there are no images to load
+- Respects `prefers-reduced-motion`
+
+## Built with
+
+HTML, CSS and vanilla JavaScript.

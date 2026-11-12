@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 :root {
-  --left-bg-color: rgba(87, 84, 236, 0.7);
-  --right-bg-color: rgba(43, 43, 43, 0.8);
-  --left-btn-hover-color: rgba(87, 84, 236, 1);
-  --right-btn-hover-color: rgba(28, 122, 28, 1);
-  --hover-width: 75%;
-  --other-width: 25%;
-  --speed: 1000ms;
+  --left-bg: linear-gradient(160deg, #ff6b6b 0%, #c2185b 100%);
+  --right-bg: linear-gradient(160deg, #1e293b 0%, #0b1120 100%);
+  --right-accent: #22d3ee;
+  --hover-width: 72%;
+  --other-width: 28%;
+  --speed: 900ms;
 }
 
 * {
@@ -15,126 +12,238 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  margin: 0;
   height: 100vh;
   overflow: hidden;
-  margin: 0;
-}
-
-h1 {
-  font-size: 4rem;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color: #fff;
-  position: absolute;
-  left: 50%;
-  top: 20%;
-  transform: translateX(-50%);
-  white-space: nowrap;
+  background: #0b1120;
 }
 
-.btn {
-  position: absolute;
+.topbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: center;
-  left: 50%;
-  top: 40%;
-  transform: translateX(-50%);
-  text-decoration: none;
+  justify-content: space-between;
+  padding: 24px 40px;
+  mix-blend-mode: difference;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.logo span {
+  opacity: 0.5;
+  margin: 0 2px;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 28px;
+}
+
+.topbar a {
   color: #fff;
-  border: #fff solid 0.2rem;
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  width: 15rem;
-  padding: 1.5rem;
-}
-
-
-.split.left .btn:hover {
-  background-color: var(--left-btn-hover-color);
-  border-color: var(--left-btn-hover-color);
-}
-
-.split.right .btn:hover {
-  background-color: var(--right-btn-hover-color);
-  border-color: var(--right-btn-hover-color);
+  font-size: 14px;
+  text-decoration: none;
 }
 
 .container {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #333;
 }
 
 .split {
   position: absolute;
+  top: 0;
   width: 50%;
   height: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width var(--speed) cubic-bezier(0.65, 0, 0.35, 1);
+  outline: none;
 }
 
 .split.left {
   left: 0;
-  background: url('NVIDIA-CVPR-2018-Cover.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.split.left::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--left-bg-color);
+  background: var(--left-bg);
 }
 
 .split.right {
   right: 0;
-  background: url('amd.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--right-bg);
 }
 
-.split.right::before {
-  content: '';
+.content {
+  position: relative;
+  z-index: 1;
+  width: min(460px, 80vw);
+  padding: 0 24px;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.kicker {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.split h1 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.body {
+  margin: 18px 0 0;
+  max-width: 380px;
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.btn {
+  display: inline-flex;
+  margin-top: 30px;
+  padding: 14px 26px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s, transform 0.25s;
+}
+
+.left .btn:hover {
+  background: #fff;
+  color: #c2185b;
+  transform: translateY(-2px);
+}
+
+.right .btn {
+  border-color: var(--right-accent);
+  color: var(--right-accent);
+}
+
+.right .btn:hover {
+  background: var(--right-accent);
+  color: #0b1120;
+  transform: translateY(-2px);
+}
+
+/* Decorative backgrounds */
+.pattern {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--right-bg-color);
+  inset: 0;
+  pointer-events: none;
 }
 
-.split.right,
-.split.left,
-.split.right::before,
-.split.left::before {
-  transition: all var(--speed) ease-in-out;
+.pattern.grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 30% 40%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 30% 40%, #000 0%, transparent 70%);
 }
 
-.hover-left .left {
-  width: var(--hover-width);
+.pattern.code {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 4vw 2vh 0;
+  color: rgba(34, 211, 238, 0.08);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 30vw;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.hover-left .right {
-  width: var(--other-width);
-}
-
+/* Expand / collapse */
+.hover-left .left,
 .hover-right .right {
   width: var(--hover-width);
 }
 
+.hover-left .right,
 .hover-right .left {
   width: var(--other-width);
 }
 
+.hover-left .right .content,
+.hover-right .left .content {
+  opacity: 0.25;
+  transform: scale(0.94);
+}
+
 @media (max-width: 800px) {
-  h1 {
-    font-size: 2rem;
-    top: 30%;
+  body {
+    height: auto;
+    overflow: auto;
   }
 
-  .btn {
-    padding: 1.2rem;
-    width: 12rem;
+  .topbar {
+    padding: 18px 20px;
+  }
+
+  .topbar nav {
+    display: none;
+  }
+
+  .container {
+    height: auto;
+  }
+
+  .split,
+  .hover-left .left,
+  .hover-left .right,
+  .hover-right .left,
+  .hover-right .right {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .hover-left .right .content,
+  .hover-right .left .content {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split,
+  .content {
+    transition: none;
   }
 }
